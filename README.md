@@ -1,3 +1,5 @@
+## THIRUMALAIVASAN J (212224060287)
+---
 ## Aim
 To write and execute an Assembly Language Program for sorting data in Ascending and  descending order using 8051 microcontroller on Keil software.
 ---
@@ -22,12 +24,29 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 ## Program (Ascending order)
 
 ```asm
-
+ORG 0000H
+LOOP1:MOV R0,#40H
+MOV R6,30H
+DEC R6
+LOOP:MOV A,@R0
+INC R0
+MOV B,@R0
+CJNE A,B,NEXT
+NEXT:JC DOWN
+MOV@R0,A
+DEC R0
+MOV@R0,B
+INC R0
+DOWN:DJNZ R6,LOOP
+MOV R1,#02H
+DJNZ R1,LOOP1
+END
 
 
 
 ```
 ## OUTPUT(Ascending order)
+<img width="474" height="389" alt="image" src="https://github.com/user-attachments/assets/af763105-9518-4ae0-a73d-46099229417c" />
 
 
 
@@ -49,12 +68,30 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 
 ```asm
 
+ORG 0000H
+LOOP1:MOV R0,#40H
+MOV R6,30H
+DEC R6
+LOOP:MOV A,@R0
+INC R0
+MOV B,@R0
+CJNE A,B,NEXT
+NEXT:JNC DOWN
+MOV@R0,A
+DEC R0
+MOV@R0,B
+INC R0
+DOWN:DJNZ R6,LOOP
+MOV R1,#02H
+DJNZ R1,LOOP1
+END
 
 
 
 ```
 ## OUTPUT(Descending order)
 
+<img width="497" height="391" alt="image" src="https://github.com/user-attachments/assets/0f2101ae-77cf-4792-9bc4-5ad88e08f19b" />
 
 
 ---
